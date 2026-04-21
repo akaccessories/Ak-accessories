@@ -15,9 +15,20 @@ nav {
     padding:15px;
     display:flex;
     justify-content:space-between;
+    align-items:center;
 }
 nav input {
-    padding:5px;
+    padding:7px;
+    border-radius:5px;
+    border:none;
+}
+
+/* Banner */
+.banner {
+    background:linear-gradient(to right, black, orange);
+    color:white;
+    text-align:center;
+    padding:30px;
 }
 
 /* Products */
@@ -32,8 +43,9 @@ nav input {
     padding:15px;
     border-radius:10px;
     text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-.card img { width:100%; }
+.card img { width:100%; height:150px; object-fit:cover; }
 
 /* Button */
 .btn {
@@ -42,7 +54,9 @@ nav input {
     padding:8px 15px;
     border:none;
     cursor:pointer;
+    border-radius:5px;
 }
+.btn:hover { background:black; }
 
 /* Cart */
 #cart {
@@ -52,6 +66,15 @@ nav input {
     background:black;
     color:white;
     padding:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* About */
+.about {
+    background:white;
+    padding:20px;
+    text-align:center;
 }
 </style>
 
@@ -65,37 +88,63 @@ nav input {
 <input type="text" placeholder="Search..." onkeyup="searchProduct(this.value)">
 </nav>
 
+<!-- Banner -->
+<div class="banner">
+<h2>Best Mobile Accessories Shop</h2>
+<p>Quality Products at Best Price 🔥</p>
+</div>
+
 <!-- Products -->
 <div class="grid" id="productList">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc">
+<img src="cover.jpg">
 <h3>Mobile Cover</h3>
-<p>199</p>
+<p>₹199</p>
 <button class="btn" onclick="addToCart('Mobile Cover',199)">Add to Cart</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
 <h3>Fast Charger</h3>
-<p>499</p>
-<button class="btn" onclick="addToCart('Charger',499)">Add to Cart</button>
+<p>₹499</p>
+<button class="btn" onclick="addToCart('Fast Charger',499)">Add to Cart</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1580894908361-967195033215">
 <h3>Earphones</h3>
-<p>299</p>
+<p>₹299</p>
 <button class="btn" onclick="addToCart('Earphones',299)">Add to Cart</button>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc">
+<h3>Back Cover</h3>
+<p>₹249</p>
+<button class="btn" onclick="addToCart('Back Cover',249)">Add to Cart</button>
+</div>
+
+</div>
+
+<!-- About -->
+<div class="about">
+<h2>About Us</h2>
+<p>AK Accessories is your trusted shop in Mithapur for all mobile accessories.</p>
+
+<h3>Why Choose Us?</h3>
+<p>✔ Best Price</p>
+<p>✔ Quality Products</p>
+<p>✔ Trusted Shop</p>
 </div>
 
 <!-- Cart -->
 <div id="cart">
+<div>
 Items: <span id="count">0</span> |
 Total: ₹<span id="total">0</span>
-<button class="btn" onclick="checkout()">Checkout</button>
+</div>
+<button class="btn" onclick="checkout()">Order on WhatsApp</button>
 </div>
 
 <script>
@@ -112,7 +161,7 @@ function addToCart(name, price){
 }
 
 function checkout(){
-    let url = "https://wa.me/919876543210?text=Order: " + order + " Total ₹" + total;
+    let url = "https://wa.me/917677594650?text=Order: " + order + " Total ₹" + total;
     window.open(url);
 }
 
